@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Market
+{% endblock pagetitle %}
+
+{% block body %}
+
+<br>
+<div class="row mb-5 text-center text-white">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(0, 85, 0);"><b>İlaç ve Gübreler</b></h1>
+        <p class="lead" style="font-weight: 500;color: black;">İlaç ve gübrelerinizi tek bir platformdan satın alın</p>
+    </div>
+</div>
+<div class="row p-3">
+    {% for index in range(0,supplement_name | length) %}
+    {% if index != 8 %}
+    <div class="col">
+        <div class=" p-5 bg-white shadow rounded-lg" style="height: 95%;">
+        <center>
+            {% if index==4  %}
+            <h5>Gübre<b style="color: green;"> (Sağlıklı):</b></h5>
+            {% else %}
+            <h5>İlaç<b style="color: red;"> (Hasta):</b></h5>
+            {% endif %}
+            <br>
+            <img src={{supplement_image[index]}} width="200" height="250">
+            <br> 
+            <br>
+            <h6> {{disease[index]}} için</h6>
+            <p>{{supplement_name[index]}}</p>
+
+            <a target="_blank" href={{buy[index]}}><button type="button" class="btn btn-success"
+                    style="background-color: #ffbb00;">Satın Al</button></a>
+        </center>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% endblock body %}

@@ -1,0 +1,94 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Sistemi
+{% endblock pagetitle %}
+
+{% block body %}
+
+<div>
+    <div class="container">
+        <!-- For demo purpose -->
+        <div class="row mb-5 text-center text-white">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(0, 85, 0);"><b> AI Sistemi </b>
+                    <br>Kayısı Hastalık Tespiti</br>
+                    <br>🍑</br></h1>
+                <p class="lead" style="font-weight: 500;color: black;">AI Sistemi Kayısı Hastalığını Tespit Etmenize Yardımcı Olsun</p>
+            </div>
+        </div>
+        <!-- End -->
+        <div class="row ">
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+
+                    <h5><b>Bitkide ve kayısıda hastalık tespiti neden gereklidir ?</b></h5>
+                    <p>Bitki hastalıkları kendi türlerinin büyümesini ve gelişmesini de olumsuz etkileyebilir. 
+                        Hastalığı ve hastalığa neden olan etkenlerin doğru bir şekilde tanımlanamaması, 
+                        zaman ve para kaybı olabilir ve daha fazla bitki kaybına yol açabilir. 
+                        Bu nedenle doğru hastalık teşhisi gereklidir. Tarımın ülke geneli büyük bir ekonomik 
+                        getirisi olduğu düşünülünce bu durum daha da önem kazanmaktadır. 
+                        Ülkemiz için en önemli ekonomik getirisi olan kayısı bu gerekliliği daha da ön plana çıkarmaktadır.
+                    </p>
+                </div>
+            </div>
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;"><img
+                        src="https://befreshcorp.net/wp-content/uploads/2017/07/product-packshot-apricot.jpg "
+                        height="300" alt="" width="315" class="d-block mx-auto mb-4 rounded-pill">
+
+                    <!-- Default bootstrap file upload-->
+
+                    <form action="/tahmin" method="POST" enctype="multipart/form-data">
+                        <div class="custom-file overflow-hidden mb-4">
+                            <input type="file" id="actual-btn" hidden name="image" />
+                            <label for="actual-btn">Görsel Seçiniz</label>
+                            <span id="file-chosen">Henüz bir dosya seçilmedi</span>
+                        </div>
+
+                        <!-- End -->
+
+                        <h6 class="text-center mb-4 text-muted">
+                            Kayısı görüntüsünü yükleyin ve ardından yapay zekanın büyüsünü görün.
+                        </h6>
+
+                        <!-- Custom bootstrap upload file-->
+                        <center>
+                            <a class="mx-2"><button type="submit" class="btn btn-outline-success">Tahmin Et</button></a>
+                        </center>
+                    </form>
+                    <!-- End -->
+
+                </div>
+            </div>
+            <div class="col mx-auto">
+                <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                    <h5><b>Kayısı Hastalığını Önleyin:</b></h5>
+                    <ol>
+                        <li>İyi Sanitasyon Uygulamalarını Takip Edin.</li>
+                        <li>Bitkilerinizi Sağlıklı Tutmak için Gübreleyin.</li>
+                        <li>Bitkileri Edinmeden Önce Hastalıklara Karşı Kontrol Edin.</li>
+                        <li>Ekimden Önce Toprağın Isınmasına İzin Verin.</li>
+                        <li>Ekinleri Döndürerek Sağlıklı Bir Meyve Bahçesi Sağlayın.</li>
+                        <li>İyi Hava Sirkülasyonu Sağlayın</li>
+                        <li>Hastalıklı Sapları ve Yaprakları Ayıklayın</li>
+                    </ol>
+                    <a target="_blank" href="#"
+                        class="mx-2"><button type="button" class="btn btn-outline-success">Daha Fazla</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+
+{% endblock body %}

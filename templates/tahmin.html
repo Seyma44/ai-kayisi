@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+{{title}}
+{% endblock pagetitle %}
+{% block body %}
+ 
+<div>
+  <div class="container">
+    <!-- For demo purpose -->
+    <div class="row mb-5 text-center text-white">
+      <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: rgb(0, 85, 0);"><b>{{title}}🍂</b></h1>
+      </div>
+    </div>
+    <center>
+
+      <div>
+    
+        <div class="loader" style="display:none; margin-left: 43%;"></div>
+    
+          <h3 id="result" style="margin-left: 38%; margin-bottom: 50px;"></h3>
+    
+      </div>
+           <!-- <img src={{image_url}} width="350" height="350"> -->
+      </div>
+      <div class="loader" style="display:none; margin-left: 43%;"></div> 
+      </center>
+      <br>
+      <div class=" row ">
+        <div class="col mx-auto">
+          <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+
+            <h5><b>
+                {% if pred==4 %}
+                Sağlıklı Kayısı Yetiştirmek için :
+                {% else %}
+                Hastalık Tanımı :
+                {% endif %}
+              </b></h5>
+            <p>{{desc}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto">
+          <div class="p-5 bg-white shadow rounded-lg" style="height:95%">
+            <h5><b>
+                {% if pred==4  %}
+                Kayısının Faydaları:
+                {% else %}
+                Önlemler: 
+
+                {% endif %}
+              </b></h5>
+            <p>
+              {{prevent}}
+            </p>
+          </div>
+        </div>
+
+        {% if pred!=4 %}
+        <div class="col mx-auto"">
+        <div class=" p-5 bg-white shadow rounded-lg" style="height: 95%;">
+          <center>
+            <h5><b>
+                {% if pred==4  %}
+                Gübreleme:
+                {% else %}
+                Kimyasal Mücadele:
+                {% endif %}
+              </b></h5>
+            <br>
+            <img src={{simage}} width="300" height="350">
+            <br>
+            <br>
+            <h6>{{sname}}</h6>
+
+            <a target="_blank" href={{buy_link}}><button type="button" class="btn btn-success"
+                style="background-color: #ffbb00;">Satın Al</button></a>
+          </center>
+        </div>
+      </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% endblock body %}
